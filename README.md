@@ -47,27 +47,31 @@ I will be creating a Space Invader game that will allow the user to keep track o
 
 #### Kanban Board at the start
 
-![](\Images\KanbanBoardSprint1Start.png)
+![](/Images/KanbanBoardSprint1Start.png)
 
 #### Sprint Goals
 
-## Sprint 1: Complete User Stories In Sprint Backlog
 - [x] Complete User Story 1.2
 - [x] Complete User Story 1.3
-- [ ] Complete User Story 1.4
+- [x] Complete User Story 1.4
 - [x] Complete User Story 2.3
 - [x] Complete User Story 2.4
-- [ ] Complete User Story 2.5
-- [ ] Update ReadMe 
-- [ ] Commit Changes to GitHub
-- [ ] Add Sprint Review and Retrospective
+- [x] Complete User Story 2.5
+- [x] Update ReadMe 
+- [x] Commit Changes to GitHub
+- [x] Add Sprint Review and Retrospective
 
 #### Kanban Board at the end
 
-
+![KanbanBoardSprint1End](/Images/KanbanBoardSprint1End.png)
 
 #### Sprint Review
 
-
+In this sprint I managed to complete all User Stories I had in the Sprint Backlog. I created the Database that holds the Users Table as well as the High scores Table. I then created CRUD Methods for both of these tables and finally created tests for the CRUD Methods. 
 
 #### Sprint Retrospective
+
+This Sprints time management was okay. I managed to complete all the user stories I had set myself in the backlog. However the reason I have labelled this as "okay" is due to one issue I had. While creating the Unit Tests for the CRUD Methods the Update Methods have problems when receiving data from the database and this lead to me wasting over an hour trying to fix it. After trying everything the problem is the tests are relying on the Database to update in time which isn't happening. 
+
+I did however complete some manual testing to make sure the CRUD Methods work and the database updates correctly and it does. Unfortunately without mocking I don't believe these tests will pass. However as stated I have done manual testing to assure the methods work as intended.
+

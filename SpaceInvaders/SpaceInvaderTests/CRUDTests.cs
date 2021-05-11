@@ -182,7 +182,6 @@ namespace SpaceInvaderTests
                 db.SaveChanges();
 
                 var expected = db.Highscores.Where(h => h.User.FirstName == "Liam").FirstOrDefault();
-                Debug.WriteLine(expected.Score);
 
                 //Update highscore
 
