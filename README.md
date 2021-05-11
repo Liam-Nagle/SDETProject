@@ -47,11 +47,20 @@ I will be creating a Space Invader game that will allow the user to keep track o
 
 #### Kanban Board at the start
 
-![](Images\KanbanBoardSprint1Start.png)
+![](\Images\KanbanBoardSprint1Start.png)
 
 #### Sprint Goals
 
-
+## Sprint 1: Complete User Stories In Sprint Backlog
+- [x] Complete User Story 1.2
+- [x] Complete User Story 1.3
+- [ ] Complete User Story 1.4
+- [x] Complete User Story 2.3
+- [x] Complete User Story 2.4
+- [ ] Complete User Story 2.5
+- [ ] Update ReadMe 
+- [ ] Commit Changes to GitHub
+- [ ] Add Sprint Review and Retrospective
 
 #### Kanban Board at the end
 

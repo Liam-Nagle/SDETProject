@@ -83,6 +83,7 @@ namespace SpaceInvadersBusiness
             {
                 SelectedHighscore = db.Highscores.Where(h => h.HighscoreID == highscoreID).FirstOrDefault();
                 SelectedHighscore.Score = score;
+                db.SaveChanges();
             }
         }
 
@@ -94,9 +95,12 @@ namespace SpaceInvadersBusiness
             {
                 var userHighscores = db.Highscores.Where(u => u.UserID == userID);
 
-                foreach (var highscore in userHighscores)
+                if(userHighscores.Count() > 0)
                 {
-                    DeleteHighscore(highscore.HighscoreID);
+                    foreach (var highscore in userHighscores)
+                    {
+                        DeleteHighscore(highscore.HighscoreID);
+                    }
                 }
 
                 var selectedUser = db.Users.Where(u => u.UserID == userID).FirstOrDefault();
