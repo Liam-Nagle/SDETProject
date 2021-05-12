@@ -157,10 +157,12 @@ namespace SpaceInvaderTests
                 //Update user
 
                 _crudManager.UpdateUser(newUser.UserID, "Liam", "Nagle", "LNagle", "password");
+            }
 
-                //Check it has been updated
+            using (var db = new SpaceInvadersContext())
+            {
+                var updatedUser = db.Users.Where(u => u.FirstName == "Liam").FirstOrDefault();
 
-                var updatedUser = db.Users.Find(newUser.UserID);
                 Assert.AreEqual("LNagle", updatedUser.Username);
             }
         }
@@ -168,7 +170,8 @@ namespace SpaceInvaderTests
         [Test]
         public void WhenAHighscoreIsUpdated_TheDatabaseIsUpdated()
         {
-            using(var db = new SpaceInvadersContext())
+
+            using (var db = new SpaceInvadersContext())
             {
                 var newUser = new User()
                 {
@@ -181,15 +184,19 @@ namespace SpaceInvaderTests
                 db.Users.Add(newUser);
                 db.SaveChanges();
 
-                var expected = db.Highscores.Where(h => h.User.FirstName == "Liam").FirstOrDefault();
+                //Get the user Highscore
+                var highscore = db.Highscores.Where(h => h.User.FirstName == "Liam").FirstOrDefault();
 
-                //Update highscore
+                //Update the highscore to 10
+                _crudManager.UpdateHighscore(highscore.HighscoreID, 10);
+            }
 
-                _crudManager.UpdateHighscore(expected.HighscoreID, 10);
+            //Uses two using statements to "Refresh" the database
 
-                //Check it has been updated
+            using (var db = new SpaceInvadersContext())
+            {
+                var updatedHighscore = db.Highscores.Where(h => h.User.FirstName == "Liam").FirstOrDefault();
 
-                var updatedHighscore = db.Highscores.Find(expected.HighscoreID);
                 Assert.AreEqual(10, updatedHighscore.Score);
             }
         }

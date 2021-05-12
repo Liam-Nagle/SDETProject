@@ -71,7 +71,34 @@ In this sprint I managed to complete all User Stories I had in the Sprint Backlo
 
 #### Sprint Retrospective
 
-This Sprints time management was okay. I managed to complete all the user stories I had set myself in the backlog. However the reason I have labelled this as "okay" is due to one issue I had. While creating the Unit Tests for the CRUD Methods the Update Methods have problems when receiving data from the database and this lead to me wasting over an hour trying to fix it. After trying everything the problem is the tests are relying on the Database to update in time which isn't happening. 
+This Sprints time management was okay. I managed to complete all the user stories I had set myself in the backlog. However, the reason I have labelled this as "okay" is due to one issue I had. While creating the Unit Tests for the CRUD Methods the Update Methods have problems when receiving data from the database and this lead to me wasting over an hour trying to fix it. After trying everything the problem is the tests are relying on the Database to update in time which isn't happening. 
 
-I did however complete some manual testing to make sure the CRUD Methods work and the database updates correctly and it does. Unfortunately without mocking I don't believe these tests will pass. However as stated I have done manual testing to assure the methods work as intended.
+I did however complete some manual testing to make sure the CRUD Methods work and the database updates correctly and it does. Unfortunately without mocking I don't believe these tests will pass. However, as stated I have done manual testing to assure the methods work as intended.
+
+### Sprint 2
+
+#### Kanban Board at the start
+
+![](/Images/KanbanBoardSprint2Start.png)
+
+#### Sprint Goals
+
+- [ ] Complete User Story 1.5
+- [ ] Complete User Story 1.6
+- [ ] Complete User Story 2.2
+- [ ] Complete User Story 2.6
+- [ ] Complete User Story 3.3
+- [ ] Update ReadMe
+- [ ] Commit Changes to GitHub
+- [ ] Add Sprint Review and Retrospective
+
+#### Kanban Board at the end
+
+
+
+#### Sprint Review
+
+
+
+#### Sprint Retrospective
 

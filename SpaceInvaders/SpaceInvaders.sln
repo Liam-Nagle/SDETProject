@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceInvadersModel", "Space
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceInvadersBusiness", "SpaceInvadersBusiness\SpaceInvadersBusiness.csproj", "{919B161D-3017-401C-8947-12B62B6F0D43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceInvaderTests", "SpaceInvaderTests\SpaceInvaderTests.csproj", "{BC645D50-645B-49CC-B35B-935A05ED5ACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceInvaderTests", "SpaceInvaderTests\SpaceInvaderTests.csproj", "{BC645D50-645B-49CC-B35B-935A05ED5ACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceInvadersGUI", "SpaceInvadersGUI\SpaceInvadersGUI.csproj", "{9752007E-A815-4937-93B8-42D8A0882F34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BC645D50-645B-49CC-B35B-935A05ED5ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC645D50-645B-49CC-B35B-935A05ED5ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC645D50-645B-49CC-B35B-935A05ED5ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9752007E-A815-4937-93B8-42D8A0882F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9752007E-A815-4937-93B8-42D8A0882F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9752007E-A815-4937-93B8-42D8A0882F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9752007E-A815-4937-93B8-42D8A0882F34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
