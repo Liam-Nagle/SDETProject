@@ -10,18 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SpaceInvadersGUI
 {
     /// <summary>
-    /// Interaction logic for Main_Menu.xaml
+    /// Interaction logic for MainMenuPage.xaml
     /// </summary>
-    public partial class Main_Menu : Window
+    public partial class MainMenuPage : Page
     {
-        public Main_Menu()
+        public MainMenuPage()
         {
             InitializeComponent();
+        }
+
+        private void ButtonHighscore_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new HighscorePage());
+        }
+
+        private void ButtonPlay_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new GamePage());
         }
     }
 }

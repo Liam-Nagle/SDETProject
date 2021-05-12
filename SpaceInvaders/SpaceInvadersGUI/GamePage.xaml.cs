@@ -18,9 +18,9 @@ namespace SpaceInvadersGUI
     /// <summary>
     /// Interaction logic for Game.xaml
     /// </summary>
-    public partial class Game : Page
+    public partial class GamePage : Page
     {
-        public Game()
+        public GamePage()
         {
             InitializeComponent();
         }

@@ -16,29 +16,19 @@ using System.Windows.Shapes;
 namespace SpaceInvadersGUI
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Login : Page
+    public partial class RegisterPage : Page
     {
-        MainWindow _mainWindow;
-        public Login()
+        public RegisterPage()
         {
             InitializeComponent();
         }
 
-        public Login(MainWindow mainWindow)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-        }
-
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Register());
-        }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            NavigationService.GoBack();
+            //Needs to actually Register The Person Here
         }
     }
 }

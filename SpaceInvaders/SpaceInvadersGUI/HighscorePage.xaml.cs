@@ -18,11 +18,16 @@ namespace SpaceInvadersGUI
     /// <summary>
     /// Interaction logic for Highscore.xaml
     /// </summary>
-    public partial class Highscore : Page
+    public partial class HighscorePage : Page
     {
-        public Highscore()
+        public HighscorePage()
         {
             InitializeComponent();
+        }
+
+        private void ButtonMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainMenuPage());
         }
     }
 }
