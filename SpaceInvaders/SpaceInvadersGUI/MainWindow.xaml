@@ -26,7 +26,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="3*"/>
@@ -41,23 +41,21 @@
                 AcceptsReturn="True"
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto"
-                materialDesign:HintAssist.Hint="Username"
-                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"/>
+                materialDesign:HintAssist.Hint="Username"/>
             </StackPanel>
             <StackPanel Grid.Row="3">
                 <PasswordBox
                     Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                     VerticalAlignment="Top"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedPasswordFieldPasswordBoxEnabledComboBox}"
                     materialDesign:HintAssist.Hint="Password"/>
             </StackPanel>
         </Grid>
-        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="75" FontFamily="{DynamicResource MaterialDesignFont}" FontWeight="Bold" Foreground="#FF263238">
-            <materialDesign:PackIcon
+        <TextBlock Grid.Column="1" Text="Login" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="75" FontFamily="{DynamicResource MaterialDesignFont}" FontWeight="Bold" Foreground="#FF263238" Margin="0,0,10,0"/>
+        <materialDesign:PackIcon
             Kind="AccountCircle"
-                Width="150"
-                Height="150"/>
-        </TextBlock>
+            Width="100"
+            Height="100"
+            Foreground="#FF263238" VerticalAlignment="Center" Grid.Column="1"/>
         <Grid Grid.Row="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -65,13 +63,13 @@
             </Grid.ColumnDefinitions>
             <Button
               Style="{StaticResource MaterialDesignRaisedAccentButton}"
-              ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+              ToolTip="Click Here To Login"
               VerticalAlignment="Top"
               materialDesign:RippleAssist.Feedback="#FFFFFF"
               Content="Login" Margin="0,0,5,0" Background="#FF263238" BorderBrush="#FF263238" />
             <Button
               Style="{StaticResource MaterialDesignRaisedAccentButton}"
-              ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+              ToolTip="Click Here To Register"
               VerticalAlignment="Top"
               materialDesign:RippleAssist.Feedback="#FFFFFF"
               Grid.Column="1"
