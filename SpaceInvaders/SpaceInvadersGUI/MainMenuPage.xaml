@@ -16,10 +16,10 @@
       d:DesignHeight="550" d:DesignWidth="900"
       Title="MainMenuPage">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,15,0,0" Text="SPACE" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="100" FontFamily="OCR A Std" Height="94"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="SPACE" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="100" FontFamily="OCR A Std" Height="94"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,109,0,0" Text="INVADERS" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="100" FontFamily="OCR A Std" Height="94"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,104,0,0" Text="INVADERS" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="100" FontFamily="OCR A Std" Height="94"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,15,0,0" Text="COSMOS" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="100" FontFamily="OCR A Std" Height="94"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="COSMOS" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="100" FontFamily="OCR A Std" Height="94"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,109,0,0" Text="FIGHTERS" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="100" FontFamily="OCR A Std" Height="94"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,104,0,0" Text="FIGHTERS" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="100" FontFamily="OCR A Std" Height="94"/>
         <Button x:Name="ButtonPlay"
               Style="{StaticResource MaterialDesignFlatButton}"
               ToolTip="Play Space Invaders"

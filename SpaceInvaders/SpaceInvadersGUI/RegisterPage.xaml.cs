@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpaceInvadersBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace SpaceInvadersGUI
     /// </summary>
     public partial class RegisterPage : Page
     {
+        CRUDManager _crudmanager = new CRUDManager();
         public RegisterPage()
         {
             InitializeComponent();
@@ -27,8 +29,15 @@ namespace SpaceInvadersGUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
-            //Needs to actually Register The Person Here
+            if(PasswordBoxRegister.Password == PasswordConfirmBoxRegister.Password)
+            {
+                _crudmanager.CreateUser(TextBoxFirstNameRegister.Text, TextBoxLastNameRegister.Text, TextBoxUsernameRegister.Text, PasswordBoxRegister.Password);
+                NavigationService.GoBack();
+            }
+            else
+            {
+                MessageBox.Show("Please make sure your Passwords are the same!");
+            }
         }
     }
 }

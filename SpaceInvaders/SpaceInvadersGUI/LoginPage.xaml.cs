@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpaceInvadersBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace SpaceInvadersGUI
     public partial class LoginPage : Page
     {
         MainWindow _mainWindow;
+        CRUDManager _crudmanager = new CRUDManager();
         public LoginPage()
         {
             InitializeComponent();
@@ -39,10 +41,15 @@ namespace SpaceInvadersGUI
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            MainMenuWindow mainMenuWindow = new MainMenuWindow();
-            mainMenuWindow.Show();
-            _mainWindow.Close();
-            //Needs to actually check login details
+            if(_crudmanager.LoginDetails(TextboxUsername.Text, PasswordBoxPassword.Password))
+            {
+                MainMenuWindow mainMenuWindow = new MainMenuWindow();
+                mainMenuWindow.Show();
+                _mainWindow.Close();
+            } else
+            {
+                MessageBox.Show("Wrong Username and Password! Please try again.");
+            }
         }
     }
 }

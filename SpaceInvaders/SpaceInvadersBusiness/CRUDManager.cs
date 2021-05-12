@@ -118,5 +118,23 @@ namespace SpaceInvadersBusiness
                 db.SaveChanges();
             }
         }
+
+        public bool LoginDetails(string username, string password)
+        {
+            using(var db = new SpaceInvadersContext())
+            {
+                var selectedUser = db.Users.Where(u => u.Username == username).FirstOrDefault();
+                if(selectedUser == null)
+                {
+                    return false;
+                } else if(selectedUser.Password == password)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
