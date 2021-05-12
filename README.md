@@ -83,14 +83,14 @@ I did however complete some manual testing to make sure the CRUD Methods work an
 
 #### Sprint Goals
 
-- [ ] Complete User Story 1.5
-- [ ] Complete User Story 1.6
-- [ ] Complete User Story 2.2
-- [ ] Complete User Story 2.6
-- [ ] Complete User Story 3.3
-- [ ] Update ReadMe
-- [ ] Commit Changes to GitHub
-- [ ] Add Sprint Review and Retrospective
+- [x] Complete User Story 1.5
+- [x] Complete User Story 1.6
+- [x] Complete User Story 2.2
+- [x] Complete User Story 2.6
+- [x] Complete User Story 3.3
+- [x] Update ReadMe
+- [x] Commit Changes to GitHub
+- [x] Add Sprint Review and Retrospective
 
 #### Kanban Board at the end
 
@@ -98,7 +98,13 @@ I did however complete some manual testing to make sure the CRUD Methods work an
 
 #### Sprint Review
 
-
+For this Sprint I had set myself the task of creating all the GUI elements for the program. I also managed to add some functionality to the buttons to allow general navigation around the program. These are solely here for Manual Testing purposes of the GUI and allow me to make sure all the Pages and Windows display correctly.
 
 #### Sprint Retrospective
+
+This Sprint again had good time management. I managed to complete all user Stories I had set myself in the backlog. At the start of the sprint I taught myself how to use Material Design and ended up spending a few hours figuring out how to do different things within it. This ended up eating into a lot of my time for the sprint however I still managed to finish everything. 
+
+I have then gone on to work on a few extra parts from my Project Backlog. Getting the Login and Registration functionality working.
+
+Taking the above into account I feel as though although it might look like I have a lot of User Stories within my Sprint Backlog at the start of the day I need to think about exactly how much work they require. As I easily managed to complete these even with wasting some of my time this morning learning how to use Material Design.
 
