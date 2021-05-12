@@ -1,0 +1,28 @@
+﻿<Window x:Class="SpaceInvadersGUI.Main_Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpaceInvadersGUI"
+        mc:Ignorable="d"
+        Title="Main Menu" Height="550" Width="900" Background="Black">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,15,0,0" Text="SPACE" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="100" FontFamily="OCR A Std" Height="94"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="SPACE" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="100" FontFamily="OCR A Std" Height="94"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,109,0,0" Text="INVADERS" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="100" FontFamily="OCR A Std" Height="94"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,104,0,0" Text="INVADERS" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="100" FontFamily="OCR A Std" Height="94"/>
+        <Button
+              Style="{StaticResource MaterialDesignFlatButton}"
+              ToolTip="MaterialDesignFlatButton"
+              Content="PLAY" Foreground="White" FontSize="50" Height="60" Width="184" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="OCR A Std" Margin="0,237,0,0" />
+        <Button
+              Style="{StaticResource MaterialDesignFlatButton}"
+              ToolTip="MaterialDesignFlatButton"
+              Content="HIGHSCORE" Foreground="White" FontSize="50" Height="60" Width="350" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="OCR A Std" Margin="0,307,0,0" />
+        <Button
+              Style="{StaticResource MaterialDesignFlatButton}"
+              ToolTip="MaterialDesignFlatButton"
+              Content="QUIT" Foreground="White" FontSize="50" Height="60" Width="184" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="OCR A Std" Margin="0,377,0,0" />
+        <TextBlock HorizontalAlignment="Left" Margin="778,2,0,0" Text="USERNAME" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Height="13" Foreground="White" FontFamily="OCR A Std" IsEnabled="False"/>
+    </Grid>
+</Window>

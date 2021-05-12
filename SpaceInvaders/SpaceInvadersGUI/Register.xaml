@@ -111,6 +111,6 @@
               VerticalAlignment="Top"
               materialDesign:RippleAssist.Feedback="#FFFFFF"
               Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
-              Content="Register" Background="#FF263238" BorderBrush="#FF263238" Width="281" Click="Button_Click" />
+              Content="Register" Background="#FF263238" BorderBrush="#FF263238" Width="281" Click="Button_Click"/>
     </Grid>
 </Page>

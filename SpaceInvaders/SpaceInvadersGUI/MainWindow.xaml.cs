@@ -23,6 +23,7 @@ namespace SpaceInvadersGUI
         public MainWindow()
         {
             InitializeComponent();
+            ParentFrame.Navigate(new Login(this));
         }
     }
 }
