@@ -120,11 +120,11 @@ Taking the above into account I feel as though although it might look like I hav
 - [x] Complete User Story 2.8
 - [x] Complete User Story 2.9
 - [x] Complete User Story 2.9.1
-- [ ] Complete User Story 4.1
-- [ ] Complete User Story 4.2
-- [ ] Update ReadMe
-- [ ] Commit Changes to GitHub
-- [ ] Add Sprint Review and Retrospective
+- [x] Complete User Story 4.1
+- [x] Complete User Story 4.2
+- [x] Update ReadMe
+- [x] Commit Changes to GitHub
+- [x] Add Sprint Review and Retrospective
 
 #### Kanban Board at the end
 
@@ -132,9 +132,11 @@ Taking the above into account I feel as though although it might look like I hav
 
 #### Sprint Review
 
-
+For this Sprint I set myself the task of creating the "Game" functionality. Although at the start of the sprint I thought I would have no blockers as the game isn't overly complicated. I ended up having an issue a few hours into the Sprint where I was coding the functionality on the "Business" layer rather than the "GUI" layer. This lead to some issues and I had to switch where the classes were. After fixing this issue writing the code became a lot more simple and I was able to finish this within time. Finally I also set myself the task of implementing Logout functionality which was simple enough. Currently you can only logout from the "Main Menu" however I may add a way to logout while in the game in the future.
 
 #### Sprint Retrospective
 
+In this sprint again I had good time management. I managed to complete all the user stories I had set myself in the backlog. At the start of the sprint as explained in the review I had a slight blocker due to where I had put my classes but this was quickly fixed. I then went on to sort out the logout functionality which was a simple task.
 
+Tomorrow I look to complete the Highscore functionality, I have assigned a day to this as I also need to implement a "Score" system into the game code as currently there is no way of scoring anything. This will then conclude the Project Goals and Definition of Done. However I will look to focus on my Stretch Goals within the project to make the game feel more complete.
 
