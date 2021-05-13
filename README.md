@@ -108,3 +108,33 @@ I have then gone on to work on a few extra parts from my Project Backlog. Gettin
 
 Taking the above into account I feel as though although it might look like I have a lot of User Stories within my Sprint Backlog at the start of the day I need to think about exactly how much work they require. As I easily managed to complete these even with wasting some of my time this morning learning how to use Material Design.
 
+### Sprint 3
+
+#### Kanban Board at the start
+
+![](/Images/KanbanBoardSprint3Start.png)
+
+#### Sprint Goals
+
+- [x] Complete User Story 2.7
+- [x] Complete User Story 2.8
+- [x] Complete User Story 2.9
+- [x] Complete User Story 2.9.1
+- [ ] Complete User Story 4.1
+- [ ] Complete User Story 4.2
+- [ ] Update ReadMe
+- [ ] Commit Changes to GitHub
+- [ ] Add Sprint Review and Retrospective
+
+#### Kanban Board at the end
+
+![](/Images/KanbanBoardSprint3End.png)
+
+#### Sprint Review
+
+
+
+#### Sprint Retrospective
+
+
+
