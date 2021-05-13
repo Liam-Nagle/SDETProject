@@ -49,6 +49,14 @@ namespace EarthDefenderBusiness
             }
         }
 
+        public void SetSelectedUser(string username)
+        {
+            using (var db = new EarthDefenderContext())
+            {
+                SelectedUser = db.Users.Where(u => u.Username == username).FirstOrDefault();
+            }
+        }
+
         public void SetSelectedHighscore(object selectedItem)
         {
             SelectedHighscore = (Highscore)selectedItem;

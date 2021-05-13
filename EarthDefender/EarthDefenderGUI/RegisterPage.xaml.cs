@@ -29,7 +29,7 @@ namespace EarthDefenderGUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(PasswordBoxRegister.Password == PasswordConfirmBoxRegister.Password)
+            if(NullCheck() && PasswordBoxRegister.Password == PasswordConfirmBoxRegister.Password)
             {
                 _crudmanager.CreateUser(TextBoxFirstNameRegister.Text, TextBoxLastNameRegister.Text, TextBoxUsernameRegister.Text, PasswordBoxRegister.Password);
                 NavigationService.GoBack();
@@ -37,6 +37,21 @@ namespace EarthDefenderGUI
             else
             {
                 MessageBox.Show("Please make sure your Passwords are the same!");
+            }
+        }
+
+        private bool NullCheck()
+        {
+            if(TextBoxFirstNameRegister.Text == null || 
+                TextBoxLastNameRegister.Text == null || 
+                TextBoxUsernameRegister.Text == null || 
+                PasswordBoxRegister.Password == null || 
+                PasswordConfirmBoxRegister.Password == null)
+            {
+                return false;
+            } else
+            {
+                return true;
             }
         }
     }

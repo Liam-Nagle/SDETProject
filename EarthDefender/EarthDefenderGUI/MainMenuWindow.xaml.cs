@@ -19,10 +19,10 @@ namespace EarthDefenderGUI
     /// </summary>
     public partial class MainMenuWindow : Window
     {
-        public MainMenuWindow()
+        public MainMenuWindow(int userID)
         {
             InitializeComponent();
-            ParentGameFrame.Navigate(new MainMenuPage());
+            ParentGameFrame.Navigate(new MainMenuPage(userID));
         }
     }
 }

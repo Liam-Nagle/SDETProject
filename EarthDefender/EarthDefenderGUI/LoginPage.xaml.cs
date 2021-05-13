@@ -43,9 +43,18 @@ namespace EarthDefenderGUI
         {
             if(_crudmanager.LoginDetails(TextboxUsername.Text, PasswordBoxPassword.Password))
             {
-                MainMenuWindow mainMenuWindow = new MainMenuWindow();
-                mainMenuWindow.Show();
-                _mainWindow.Close();
+                _crudmanager.SetSelectedUser(TextboxUsername.Text);
+                if(_mainWindow != null)
+                {
+                    //If coming from the MainWindow close it.
+                    MainMenuWindow mainMenuWindow = new MainMenuWindow(_crudmanager.SelectedUser.UserID);
+                    mainMenuWindow.Show();
+                    _mainWindow.Close();
+                } else
+                {
+                    //If coming from another page switch to a page instead
+                    NavigationService.Navigate(new MainMenuPage(_crudmanager.SelectedUser.UserID));
+                }
             } else
             {
                 MessageBox.Show("Wrong Username and Password! Please try again.");

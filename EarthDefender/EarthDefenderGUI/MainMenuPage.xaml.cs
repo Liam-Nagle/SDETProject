@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EarthDefenderBusiness;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,14 @@ namespace EarthDefenderGUI
     /// </summary>
     public partial class MainMenuPage : Page
     {
+        CRUDManager _crudManager = new CRUDManager();
+        public MainMenuPage(int userID)
+        {
+            InitializeComponent();
+            _crudManager.SetSelectedUser(userID);
+            TextblockUsername.Text = "Welcome! " + _crudManager.SelectedUser.FirstName;
+        }
+
         public MainMenuPage()
         {
             InitializeComponent();
@@ -33,6 +42,16 @@ namespace EarthDefenderGUI
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new GamePage());
+        }
+
+        private void ButtonLogout_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox
+                .Show("You are about to logout. Are you sure?",
+                "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                NavigationService.Navigate(new LoginPage());
+            }
         }
     }
 }
