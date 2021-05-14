@@ -71,6 +71,14 @@ namespace EarthDefenderBusiness
             }
         }
 
+        public List<string> RetrieveAllUsernames()
+        {
+            using(var db = new EarthDefenderContext())
+            {
+                return db.Users.OrderBy(u => u.Username).Select(u => u.Username).ToList();
+            }
+        }
+
         //UPDATE
 
         public void UpdateUser(int userID, string firstName, string lastName, string username, string password)
@@ -136,6 +144,14 @@ namespace EarthDefenderBusiness
             }
         }
 
+        public List<Highscore> RetrieveAllUserHighscores(string username)
+        {
+            using (var db = new EarthDefenderContext())
+            {
+                return db.Highscores.Where(h => h.User.Username == username).OrderByDescending(h => h.Score).Include(u => u.User).ToList();
+            }
+        }
+
         public List<Highscore> RetrieveAllHighscores()
         {
             using (var db = new EarthDefenderContext())
@@ -157,6 +173,22 @@ namespace EarthDefenderBusiness
             using(var db = new EarthDefenderContext())
             {
                 return Enumerable.Range(0, RetrieveAllHighscores().Count).Where(c => RetrieveAllHighscores()[c].UserID == SelectedUser.UserID).ToList();
+            }
+        }
+
+        public List<int> RetrieveUserHighscorePositions(string username)
+        {
+            using (var db = new EarthDefenderContext())
+            {
+                return Enumerable.Range(0, RetrieveAllHighscores().Count).Where(c => RetrieveAllHighscores()[c].User.Username == username).ToList();
+            }
+        }
+
+        public List<int> RetrieveAllHighscorePositions()
+        {
+            using (var db = new EarthDefenderContext())
+            {
+                return Enumerable.Range(0, RetrieveAllHighscores().Count).ToList();
             }
         }
 

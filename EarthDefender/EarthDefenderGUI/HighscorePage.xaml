@@ -36,37 +36,93 @@
             <TextBlock x:Name="TextblockSecondPlace" Grid.Row="2" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="White" FontSize="30" FontFamily="OCR A Std" Margin="0,0,20,10"/>
             <TextBlock x:Name="TextblockThirdPlace" Grid.Row="3" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="White" FontSize="25" FontFamily="OCR A Std" Margin="0,0,20,10"/>
         </Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,15,0,0" Text="HIGHSCORES" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="100" FontFamily="OCR A Std" Height="94" Grid.ColumnSpan="2"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="HIGHSCORES" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="100" FontFamily="OCR A Std" Height="94" Grid.ColumnSpan="2"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <ListView x:Name="ListViewHighscores" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="18" FontFamily="OCR A Std" BorderBrush="{x:Null}" AlternationCount="1000" Background="{x:Null}" Margin="0,40,0,0">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Focusable" Value="false"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Position" Width="180">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Key}" FontWeight="Normal" Foreground="White"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Score     Name" Width="250">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Value}" FontWeight="Normal" Foreground="White"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ComboBox
+                materialDesign:HintAssist.Hint="Filter"
+                IsEditable="True"
+                x:Name="ComboBoxFilter"
+                Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Width="170" Foreground="White" FontSize="16" FontFamily="OCR A Std" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="ComboBoxFilter_SelectionChanged">
+            </ComboBox>
+            <materialDesign:ColorZone
+                Mode="Standard"
+                Padding="8 4 8 4"
+                CornerRadius="2"
+                Panel.ZIndex="1"
+                HorizontalAlignment="Right"
+                Margin="0,0,0,0"
+                materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                Grid.Row="1" Background="{x:Null}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Style="{DynamicResource MaterialDesignToolButton}">
+                        <materialDesign:PackIcon
+                            Kind="Search"
+                            Opacity=".56" IsEnabled="False" />
+                    </Button>
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="8 0 0 0"
+                        materialDesign:HintAssist.Hint="Search Username"
+                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                        x:Name="TextBoxSearch"
+                        BorderThickness="0"
+                        MinWidth="200"
+                        VerticalAlignment="Center" Foreground="White" FontFamily="OCR A Std" BorderBrush="{x:Null}" />
+                    <Button
+                        Style="{DynamicResource MaterialDesignToolButton}"
+                        Grid.Column="2" Click="Button_Click">
+                        <materialDesign:PackIcon
+                          Kind="Send"
+                          Opacity=".56"
+                          Margin="8 0 0 0" />
+                    </Button>
+                </Grid>
+            </materialDesign:ColorZone>
+        </Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,15,0,0" Text="HIGHSCORES" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="80" FontFamily="OCR A Std" Height="94" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="HIGHSCORES" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="80" FontFamily="OCR A Std" Height="94" Grid.ColumnSpan="2"/>
         <Button x:Name="ButtonMainMenu"
               Style="{StaticResource MaterialDesignFlatButton}"
               ToolTip="MaterialDesignFlatButton"
               Content="MAIN MENU" Foreground="White" FontSize="50" Height="60" Width="350" FontFamily="OCR A Std" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ButtonMainMenu_Click" Grid.ColumnSpan="2" />
-        <ListView x:Name="ListViewHighscores" Grid.Column="1" Foreground="White" Margin="0,158,0,127" FontSize="18" FontFamily="OCR A Std" BorderBrush="{x:Null}" AlternationCount="1000" Background="{x:Null}">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Focusable" Value="false"/>
-                    <Setter Property="Background" Value="Transparent"/>
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Position" Width="50">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock x:Name="TextBlockPosition" Text="{Binding Path=Key}" FontWeight="Normal"  FontFamily="OCR A Std" Foreground="White"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Score" Width="300">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Path=Value}" FontWeight="Normal" Foreground="White"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
     </Grid>
 </Page>

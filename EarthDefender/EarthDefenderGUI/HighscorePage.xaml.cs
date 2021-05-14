@@ -34,12 +34,19 @@ namespace EarthDefenderGUI
             InitializeComponent();
             _crudManager.SetSelectedUser(userID);
             InitaliseHighscores();
-            ListViewHighscores.ItemsSource = userHighscoreDict;
+            InitaliseFilterbox();
+            PopulateListView();
         }
 
         private void ButtonMainMenu_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void PopulateListView()
+        {
+            ListViewHighscores.ItemsSource = userHighscoreDict;
+            ListViewHighscores.Items.Refresh();
         }
 
         private void InitaliseHighscores()
@@ -48,16 +55,61 @@ namespace EarthDefenderGUI
             var userHighscores = _crudManager.RetrieveAllUserHighscores();
             var userPositions = _crudManager.RetrieveUserHighscorePositions();
 
-            //Adds above into a Dictionary so the Listview can have databindings
-            for (int i = 0; i < userHighscores.Count(); i++)
+            if(userHighscores!= null)
             {
-                userHighscoreDict.Add(userPositions[i] + 1, userHighscores[i]);
+                for (int i = 0; i < userHighscores.Count(); i++)
+                {
+                    userHighscoreDict.Add(userPositions[i] + 1, userHighscores[i]);
+                }
             }
+            //Adds above into a Dictionary so the Listview can have databindings
 
             var top3 = _crudManager.RetrieveTop3Highscores();
             TextblockFirstPlace.Text = top3[0].ToString();
             TextblockSecondPlace.Text = top3[1].ToString();
             TextblockThirdPlace.Text = top3[2].ToString();
+        }
+
+        private void InitaliseFilterbox()
+        {
+            foreach (var username in _crudManager.RetrieveAllUsernames())
+            {
+                ComboBoxFilter.Items.Add(username);
+            }
+            ComboBoxFilter.Items.Add("All Users");
+        }
+
+        private void ComboBoxFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            HighscoreListUpdate(ComboBoxFilter.SelectedItem.ToString());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            HighscoreListUpdate(TextBoxSearch.Text);
+        }
+
+        private void HighscoreListUpdate(string username)
+        {
+            List<Highscore> userHighscores;
+            List<int> userPositions;
+            if(username == "All Users")
+            {
+                userHighscores = _crudManager.RetrieveAllHighscores();
+                userPositions = _crudManager.RetrieveAllHighscorePositions();
+            } else
+            {
+                userHighscores = _crudManager.RetrieveAllUserHighscores(username);
+                userPositions = _crudManager.RetrieveUserHighscorePositions(username);
+            }
+
+            userHighscoreDict.Clear();
+            for (int i = 0; i < userHighscores.Count(); i++)
+            {
+                userHighscoreDict.Add(userPositions[i] + 1, userHighscores[i]);
+            }
+
+            PopulateListView();
         }
     }
 }
