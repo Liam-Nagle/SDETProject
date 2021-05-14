@@ -17,11 +17,56 @@
       Title="Highscore">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,15,0,0" Text="HIGHSCORES" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="100" FontFamily="OCR A Std" Height="94"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="HIGHSCORES" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="100" FontFamily="OCR A Std" Height="94"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Bottom" Width="72" Source="/FirstMedal.png" Margin="40,0,0,0"/>
+            <Image Grid.Row="2" HorizontalAlignment="Left" Height="85" VerticalAlignment="Bottom" Width="62" Source="/SecondMedal.png" Margin="80,0,0,0"/>
+            <Image Grid.Row="3" HorizontalAlignment="Left" Height="74" VerticalAlignment="Bottom" Width="54" Source="/ThirdMedal.png" Margin="120,0,0,0"/>
+            <TextBlock x:Name="TextblockFirstPlace" Grid.Row="1" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="White" FontSize="32" FontFamily="OCR A Std" Margin="0,0,20,10"/>
+            <TextBlock x:Name="TextblockSecondPlace" Grid.Row="2" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="White" FontSize="30" FontFamily="OCR A Std" Margin="0,0,20,10"/>
+            <TextBlock x:Name="TextblockThirdPlace" Grid.Row="3" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="White" FontSize="25" FontFamily="OCR A Std" Margin="0,0,20,10"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,15,0,0" Text="HIGHSCORES" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF46FF00" FontSize="100" FontFamily="OCR A Std" Height="94" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="HIGHSCORES" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="100" FontFamily="OCR A Std" Height="94" Grid.ColumnSpan="2"/>
         <Button x:Name="ButtonMainMenu"
               Style="{StaticResource MaterialDesignFlatButton}"
               ToolTip="MaterialDesignFlatButton"
-              Content="MAIN MENU" Foreground="White" FontSize="50" Height="60" Width="350" FontFamily="OCR A Std" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ButtonMainMenu_Click" />
+              Content="MAIN MENU" Foreground="White" FontSize="50" Height="60" Width="350" FontFamily="OCR A Std" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ButtonMainMenu_Click" Grid.ColumnSpan="2" />
+        <ListView x:Name="ListViewHighscores" Grid.Column="1" Foreground="White" Margin="0,158,0,127" FontSize="18" FontFamily="OCR A Std" BorderBrush="{x:Null}" AlternationCount="1000" Background="{x:Null}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Focusable" Value="false"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Position" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="TextBlockPosition" Text="{Binding Path=Key}" FontWeight="Normal"  FontFamily="OCR A Std" Foreground="White"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Score" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Value}" FontWeight="Normal" Foreground="White"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

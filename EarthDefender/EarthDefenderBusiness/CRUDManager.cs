@@ -1,4 +1,5 @@
 ﻿using EarthDefenderModel;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -124,6 +125,38 @@ namespace EarthDefenderBusiness
                 var selectedHighscore = db.Highscores.Where(h => h.HighscoreID == highScoreID).FirstOrDefault();
                 db.Highscores.RemoveRange(selectedHighscore);
                 db.SaveChanges();
+            }
+        }
+
+        public List<Highscore> RetrieveAllUserHighscores()
+        {
+            using(var db = new EarthDefenderContext())
+            {
+                return db.Highscores.Where(h => h.UserID == SelectedUser.UserID).OrderByDescending(h => h.Score).Include(u => u.User).ToList();
+            }
+        }
+
+        public List<Highscore> RetrieveAllHighscores()
+        {
+            using (var db = new EarthDefenderContext())
+            {
+                return db.Highscores.OrderByDescending(h => h.Score).Include(u => u.User).ToList();
+            }
+        }
+
+        public List<Highscore> RetrieveTop3Highscores()
+        {
+            using(var db = new EarthDefenderContext())
+            {
+                return db.Highscores.OrderByDescending(h => h.Score).Include(u => u.User).Take(3).ToList();
+            }
+        }
+
+        public List<int> RetrieveUserHighscorePositions()
+        {
+            using(var db = new EarthDefenderContext())
+            {
+                return Enumerable.Range(0, RetrieveAllHighscores().Count).Where(c => RetrieveAllHighscores()[c].UserID == SelectedUser.UserID).ToList();
             }
         }
 

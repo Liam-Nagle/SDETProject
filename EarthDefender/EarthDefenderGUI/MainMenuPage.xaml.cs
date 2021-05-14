@@ -36,7 +36,7 @@ namespace EarthDefenderGUI
 
         private void ButtonHighscore_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new HighscorePage());
+            NavigationService.Navigate(new HighscorePage(_crudManager.SelectedUser.UserID));
         }
 
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)

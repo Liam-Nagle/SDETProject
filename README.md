@@ -140,3 +140,28 @@ In this sprint again I had good time management. I managed to complete all the u
 
 Tomorrow I look to complete the Highscore functionality, I have assigned a day to this as I also need to implement a "Score" system into the game code as currently there is no way of scoring anything. This will then conclude the Project Goals and Definition of Done. However I will look to focus on my Stretch Goals within the project to make the game feel more complete.
 
+### Sprint 4
+
+#### Kanban Board at the start
+
+![](/Images/KanbanBoardSprint4Start.png)
+
+#### Sprint Goals
+
+- [ ] Complete User Story 3.1
+- [ ] Complete User Story 3.2
+- [ ] Refactor Code
+- [ ] Update ReadMe
+- [ ] Commit changes to Github
+- [ ] Add Sprint Review and Retrospective
+
+#### Kanban Board at the end
+
+![](/Images/KanbanBoardSprint4End.png)
+
+#### Sprint Review
+
+
+
+#### Sprint Retrospective
+

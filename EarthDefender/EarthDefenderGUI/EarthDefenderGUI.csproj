@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="FirstMedal.png" />
+    <None Remove="SecondMedal.png" />
+    <None Remove="ThirdMedal.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="2.0.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
   </ItemGroup>
@@ -17,6 +23,12 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="FirstMedal.png" />
+    <Resource Include="SecondMedal.png" />
+    <Resource Include="ThirdMedal.png" />
   </ItemGroup>
 
 </Project>

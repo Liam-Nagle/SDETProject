@@ -16,7 +16,7 @@ namespace EarthDefenderGUI
     public class GameEngine
     {
         int totalEnemies;
-        int bulletTimer;
+        int bulletTimer = 200;
         int bulletTimerLimit = 90;
         int enemySpeed = 6;
         bool goLeft = false;
@@ -25,6 +25,7 @@ namespace EarthDefenderGUI
         DispatcherTimer dispatcherTimer = new DispatcherTimer(DispatcherPriority.Normal);
         Canvas _canvas = new Canvas();
         Rectangle player1;
+        Rect collisionPlayer;
         ImageBrush playerSkin = new ImageBrush();
         Label enemiesLeft;
         private string _path = Directory.GetCurrentDirectory();
@@ -44,21 +45,14 @@ namespace EarthDefenderGUI
 
         public void Start(object sender, EventArgs e)
         {
-            Rect player = new Rect(Canvas.GetLeft(player1), Canvas.GetTop(player1), player1.Width, player1.Height);
-            enemiesLeft.Content = "Invaders Left:" + totalEnemies;
-
-            if(goLeft && Canvas.GetLeft(player1) > 0)
-            {
-                Canvas.SetLeft(player1, Canvas.GetLeft(player1) - 10);
-            } else if(goRight && Canvas.GetLeft(player1) + 80 < Application.Current.MainWindow.Width)
-            {
-                Canvas.SetLeft(player1, Canvas.GetLeft(player1) + 10);
-            }
+            MovementHandle();
 
             bulletTimer -= 3;
 
             if(bulletTimer <= 0)
             {
+                //Places bullet the enemies shoot above the player
+                //Change this to actually shoot from the enemies
                 EnemyShoot((Canvas.GetLeft(player1) + 20), 10);
                 bulletTimer = bulletTimerLimit;
             }
@@ -68,73 +62,7 @@ namespace EarthDefenderGUI
                 enemySpeed = 20;
             }
 
-            foreach(var x in _canvas.Children.OfType<Rectangle>())
-            {
-                if((string)x.Tag == "bullet")
-                {
-                    Canvas.SetTop(x, Canvas.GetTop(x) - 20);
-
-                    Rect bullet = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-
-                    if(Canvas.GetTop(x) < 10)
-                    {
-                        itemsToRemove.Add(x);
-                    }
-
-                    foreach (var y in _canvas.Children.OfType<Rectangle>())
-                    {
-                        if ((string)y.Tag == "enemy")
-                        {
-                            Rect enemy = new Rect(Canvas.GetLeft(y), Canvas.GetTop(y), y.Width, y.Height);
-
-                            if (bullet.IntersectsWith(enemy))
-                            {
-                                itemsToRemove.Add(x);
-                                itemsToRemove.Add(y);
-                                totalEnemies--;
-                            }
-                    }
-                    }
-
-                }
-
-                if((string)x.Tag == "enemy")
-                {
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) + enemySpeed);
-
-                    if(Canvas.GetLeft(x) > 900)
-                    {
-                        Canvas.SetLeft(x, -80);
-                        Canvas.SetTop(x, Canvas.GetTop(x) + (x.Height + 10));
-                    }
-
-                    Rect enemy = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-
-                    if(player.IntersectsWith(enemy))
-                    {
-                        dispatcherTimer.Stop();
-                        MessageBox.Show("You Lose"); //Some Code here to "Restart" the game with faster enemy speed
-                    }
-                }
-
-                if((string)x.Tag == "enemyBullet")
-                {
-                    Canvas.SetTop(x, Canvas.GetTop(x) + 10);
-
-                    if(Canvas.GetTop(x) > 530)
-                    {
-                        itemsToRemove.Add(x);
-                    }
-
-                    Rect enemyBullets = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-
-                    if(enemyBullets.IntersectsWith(player))
-                    {
-                        dispatcherTimer.Stop();
-                        MessageBox.Show("You Lose");
-                    }
-                }
-            }
+            CollisionCheck();
 
             foreach(Rectangle y in itemsToRemove)
             {
@@ -201,6 +129,92 @@ namespace EarthDefenderGUI
                 _canvas.Children.Add(newEnemy.Rectangle);
 
                 left -= 60;
+            }
+        }
+
+        private void MovementHandle()
+        {
+            collisionPlayer =  new Rect(Canvas.GetLeft(player1), Canvas.GetTop(player1), player1.Width, player1.Height);
+            enemiesLeft.Content = "Invaders Left:" + totalEnemies;
+
+            if (goLeft && Canvas.GetLeft(player1) > 0)
+            {
+                Canvas.SetLeft(player1, Canvas.GetLeft(player1) - 10);
+            }
+            else if (goRight && Canvas.GetLeft(player1) + 80 < Application.Current.MainWindow.Width)
+            {
+                Canvas.SetLeft(player1, Canvas.GetLeft(player1) + 10);
+            }
+        }
+
+        private void CollisionCheck()
+        {
+            foreach (var x in _canvas.Children.OfType<Rectangle>())
+            {
+                if ((string)x.Tag == "bullet")
+                {
+                    Canvas.SetTop(x, Canvas.GetTop(x) - 20);
+
+                    Rect bullet = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                    if (Canvas.GetTop(x) < 10)
+                    {
+                        itemsToRemove.Add(x);
+                    }
+
+                    foreach (var y in _canvas.Children.OfType<Rectangle>())
+                    {
+                        if ((string)y.Tag == "enemy")
+                        {
+                            Rect enemy = new Rect(Canvas.GetLeft(y), Canvas.GetTop(y), y.Width, y.Height);
+
+                            if (bullet.IntersectsWith(enemy))
+                            {
+                                itemsToRemove.Add(x);
+                                itemsToRemove.Add(y);
+                                totalEnemies--;
+                            }
+                        }
+                    }
+
+                }
+
+                if ((string)x.Tag == "enemy")
+                {
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) + enemySpeed);
+
+                    if (Canvas.GetLeft(x) > 870)
+                    {
+                        Canvas.SetLeft(x, -80);
+                        Canvas.SetTop(x, Canvas.GetTop(x) + (x.Height + 10));
+                    }
+
+                    Rect enemy = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                    if (collisionPlayer.IntersectsWith(enemy))
+                    {
+                        dispatcherTimer.Stop();
+                        MessageBox.Show("You Lose"); //Some Code here to "Restart" the game with faster enemy speed
+                    }
+                }
+
+                if ((string)x.Tag == "enemyBullet")
+                {
+                    Canvas.SetTop(x, Canvas.GetTop(x) + 10);
+
+                    if (Canvas.GetTop(x) > 530)
+                    {
+                        itemsToRemove.Add(x);
+                    }
+
+                    Rect enemyBullets = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                    if (enemyBullets.IntersectsWith(collisionPlayer))
+                    {
+                        dispatcherTimer.Stop();
+                        MessageBox.Show("You Lose");
+                    }
+                }
             }
         }
     }
