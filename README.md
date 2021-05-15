@@ -179,9 +179,9 @@ Tomorrow I look to implement the scoring functionality to the game as well as th
 
 - [x] Complete User Story 3.4
 - [x] Complete User Story 1.6
-- [ ] Update ReadMe
-- [ ] Commit changes to Github
-- [ ] Add Sprint Review and Retrospective
+- [x] Update ReadMe
+- [x] Commit changes to Github
+- [x] Add Sprint Review and Retrospective
 
 #### Kanban Board at the end
 
@@ -189,7 +189,11 @@ Tomorrow I look to implement the scoring functionality to the game as well as th
 
 #### Sprint Review
 
-
+This Sprint was very short. I only had a few things to finish before officially finishing my Project Goal. Since this has now been completed I will now be focusing on Stretch goals for my next Sprints.  
 
 #### Sprint Retrospective
+
+This sprint was very short and quite easy to implement. I simply needed to add a scoring functionality and a menu to restart/go to main menu when losing. This didn't take much time at all as the Highscore creation was already written and I simply needed to design a Menu to change to visible in the Game page when the user lost. 
+
+My next sprints will now be working on Stretch goals and any additional testing if needed.
 
