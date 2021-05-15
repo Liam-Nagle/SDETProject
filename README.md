@@ -148,16 +148,44 @@ Tomorrow I look to complete the Highscore functionality, I have assigned a day t
 
 #### Sprint Goals
 
-- [ ] Complete User Story 3.1
-- [ ] Complete User Story 3.2
-- [ ] Refactor Code
+- [x] Complete User Story 3.1
+- [x] Complete User Story 3.2
+- [x] Refactor Code
+- [x] Update ReadMe
+- [x] Commit changes to Github
+- [x] Add Sprint Review and Retrospective
+
+#### Kanban Board at the end
+
+![](/Images/KanbanBoardSprint4End.png)
+
+#### Sprint Review
+
+For this sprint I set myself the task of finishing up my main Project Goals the only thing I had left to do was the High Score page and I would be finished. I also added in a last minute "Refactor Code" just to be able to clean up my code a little and make it more DRY. During this sprint however I realised that I hadn't implemented a "score" function within the core game. So although I had added dummy data to test the Highscore list there was no way of actually putting real data onto this list yet. My goal for my next sprint will be to implement this functionality and then I will start to work on some of my stretch goals which include adding pause functionality and remembering user login details.
+
+#### Sprint Retrospective
+
+This sprints time management was again good. I set myself a shorter amount of User Stories however we also had a slightly shorter day. We had a lot of meetings throughout the day which took up some time as well as an earlier review. However this worked out perfectly due to me not having as many User Stories to complete.
+
+Tomorrow I look to implement the scoring functionality to the game as well as the functionality of this score getting added to the database when the player loses. After that my Project will be complete and I will have finished my Definition of Done. I will then work on my Stretch Goals.
+
+### Sprint 5
+
+#### Kanban Board at the start
+
+![](/Images/KanbanBoardSprint5Start.png)
+
+#### Sprint Goals
+
+- [x] Complete User Story 3.4
+- [x] Complete User Story 1.6
 - [ ] Update ReadMe
 - [ ] Commit changes to Github
 - [ ] Add Sprint Review and Retrospective
 
 #### Kanban Board at the end
 
-![](/Images/KanbanBoardSprint4End.png)
+![](/Images/KanbanBoardSprint5End.png)
 
 #### Sprint Review
 

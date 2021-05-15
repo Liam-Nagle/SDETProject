@@ -4,14 +4,46 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EarthDefenderGUI"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal" 
+      TextOptions.TextRenderingMode="Auto"        
+      FontFamily="{DynamicResource MaterialDesignFont}"
       d:DesignHeight="550" d:DesignWidth="900"
       Title="Game" Loaded="Control">
     <Grid>
         <Canvas x:Name="GameCanvas" Background="Black" Focusable="True" KeyDown="Canvas_KeyisDown" KeyUp="Canvas_KeyisUp">
             <Label x:Name="LabelEnemiesLeft" Foreground="White" FontSize="14" FontWeight="ExtraBold" FontFamily="OCR A Std">Enemies Left:</Label>
-
+            <Label x:Name="LabelLevel" Foreground="White" FontSize="80" FontWeight="ExtraBold" FontFamily="OCR A Std" Canvas.Left="240" Canvas.Top="223" Opacity="0.1">Level 1</Label>
+            <Label x:Name="LabelScore" Foreground="White" FontSize="14" FontWeight="ExtraBold" FontFamily="OCR A Std" Canvas.Left="415">Score:</Label>
             <Rectangle x:Name="RectanglePlayer" Fill="White" Height="65" Width="55" Canvas.Left="422" Canvas.Top="380"/>
+
+            <Border x:Name="BorderLose" Width="500" Height="300" Canvas.Left="200" Canvas.Top="125" Canvas.ZIndex="1" BorderBrush="White" BorderThickness="3" Background="Black" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="YOU DIED!" Grid.ColumnSpan="2" Foreground="White" VerticalAlignment="Top" FontFamily="OCR A Std" FontSize="40" HorizontalAlignment="Center"/>
+                    <Label x:Name="LabelFinalScore" Content="SCORE: " Grid.ColumnSpan="2" Foreground="White" Margin="0,65,0,182" FontFamily="OCR A Std" FontSize="30" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="ButtonPlayAgain"
+                          Style="{StaticResource MaterialDesignFlatButton}"
+                          Grid.Column="1"      
+                          ToolTip="Play Again"
+                          materialDesign:RippleAssist.Feedback="#DD000000"
+                          Content="PLAY AGAIN" Foreground="White" FontSize="20" Height="50" Width="200" FontFamily="OCR A Std" VerticalAlignment="Bottom" Click="ButtonPlayAgain_Click"/>
+                    <Button x:Name="ButtonMainMenu"
+                          Style="{StaticResource MaterialDesignFlatButton}"
+                          Grid.Column="0"
+                          ToolTip="Main Menu"
+                          materialDesign:RippleAssist.Feedback="#DD000000"
+                          Content="MAIN MENU" Foreground="White" FontSize="20" Height="50" Width="200" FontFamily="OCR A Std" VerticalAlignment="Bottom" Click="ButtonMainMenu_Click"/>
+                </Grid>
+            </Border>
+
         </Canvas>
     </Grid>
 </Page>

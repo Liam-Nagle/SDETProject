@@ -29,9 +29,9 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image Grid.Row="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Bottom" Width="72" Source="/FirstMedal.png" Margin="40,0,0,0"/>
-            <Image Grid.Row="2" HorizontalAlignment="Left" Height="85" VerticalAlignment="Bottom" Width="62" Source="/SecondMedal.png" Margin="80,0,0,0"/>
-            <Image Grid.Row="3" HorizontalAlignment="Left" Height="74" VerticalAlignment="Bottom" Width="54" Source="/ThirdMedal.png" Margin="120,0,0,0"/>
+            <Image x:Name="ImagesFirstPlace" Grid.Row="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Bottom" Width="72" Margin="40,0,0,0" Source="/FirstMedal.png"/>
+            <Image x:Name="ImagesSecondPlace" Grid.Row="2" HorizontalAlignment="Left" Height="85" VerticalAlignment="Bottom" Width="62" Margin="80,0,0,0" Source="/SecondMedal.png"/>
+            <Image x:Name="ImagesThirdPlace" Grid.Row="3" HorizontalAlignment="Left" Height="74" VerticalAlignment="Bottom" Width="54" Margin="120,0,0,0" Source="/ThirdMedal.png"/>
             <TextBlock x:Name="TextblockFirstPlace" Grid.Row="1" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="White" FontSize="32" FontFamily="OCR A Std" Margin="0,0,20,10"/>
             <TextBlock x:Name="TextblockSecondPlace" Grid.Row="2" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="White" FontSize="30" FontFamily="OCR A Std" Margin="0,0,20,10"/>
             <TextBlock x:Name="TextblockThirdPlace" Grid.Row="3" HorizontalAlignment="Right" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="White" FontSize="25" FontFamily="OCR A Std" Margin="0,0,20,10"/>

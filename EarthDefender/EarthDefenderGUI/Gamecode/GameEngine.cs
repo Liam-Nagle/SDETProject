@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EarthDefenderBusiness;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
@@ -15,51 +17,66 @@ namespace EarthDefenderGUI
 {
     public class GameEngine
     {
-        int totalEnemies;
         int bulletTimer = 200;
         int bulletTimerLimit = 90;
+
+        int totalEnemies;
+        Label enemiesLeftLabel;
         int enemySpeed = 6;
+
         bool goLeft = false;
         bool goRight = false;
+
         List<Rectangle> itemsToRemove = new List<Rectangle>();
         DispatcherTimer dispatcherTimer = new DispatcherTimer(DispatcherPriority.Normal);
+        CRUDManager _crudManager = new CRUDManager();
         Canvas _canvas = new Canvas();
+        private string _path = Directory.GetCurrentDirectory();
+
         Rectangle player1;
         Rect collisionPlayer;
         ImageBrush playerSkin = new ImageBrush();
-        Label enemiesLeft;
-        private string _path = Directory.GetCurrentDirectory();
 
-        public GameEngine(Canvas gameCanvas, Label enemiesLeft, Rectangle player)
+        int spawnAmount = 30;
+        int level = 1;
+        int score;
+        Label scoreLabel;
+        Label finalScoreLabel;
+        Label levelLabel;
+        Border loseScreen;
+
+        public GameEngine(Canvas gameCanvas, Border loseScreen, Label enemiesLeftLabel, Label levelLabel, Label finalScoreLabel, Label scoreLabel, Rectangle player, int userID)
         {
             playerSkin.ImageSource = new BitmapImage(new Uri(_path + @"/../../../Images/player.png", UriKind.Relative));
             player1 = player;
             player1.Fill = playerSkin;
+
+            _crudManager.SetSelectedUser(userID);
             _canvas = gameCanvas;
-            this.enemiesLeft = enemiesLeft;
+
+            this.enemiesLeftLabel = enemiesLeftLabel;
+            this.scoreLabel = scoreLabel;
+            this.levelLabel = levelLabel;
+            this.loseScreen = loseScreen;
+            this.finalScoreLabel = finalScoreLabel;
+
+            loseScreen.Visibility = Visibility.Hidden;
+
             dispatcherTimer.Tick += Start;
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(20);
             dispatcherTimer.Start();
-            SpawnEnemies(30);
+            SpawnEnemies(spawnAmount);
         }
 
         public void Start(object sender, EventArgs e)
         {
             MovementHandle();
-
             bulletTimer -= 3;
 
             if(bulletTimer <= 0)
             {
-                //Places bullet the enemies shoot above the player
-                //Change this to actually shoot from the enemies
                 EnemyShoot((Canvas.GetLeft(player1) + 20), 10);
                 bulletTimer = bulletTimerLimit;
-            }
-
-            if(totalEnemies < 10)
-            {
-                enemySpeed = 20;
             }
 
             CollisionCheck();
@@ -71,8 +88,11 @@ namespace EarthDefenderGUI
 
             if(totalEnemies < 1)
             {
-                dispatcherTimer.Stop();
-                MessageBox.Show("You Win!");
+                level++;
+                levelLabel.Content = "Level " + level;
+                enemySpeed += 2;
+                spawnAmount += 5 + level;
+                SpawnEnemies(spawnAmount);
             }
 
         }
@@ -124,7 +144,7 @@ namespace EarthDefenderGUI
                 int randomSkin = new Random().Next(1, 8);
                 Enemy newEnemy = new Enemy(45, 45, "enemy", randomSkin);
 
-                Canvas.SetTop(newEnemy.Rectangle, 10);
+                Canvas.SetTop(newEnemy.Rectangle, 25);
                 Canvas.SetLeft(newEnemy.Rectangle, left);
                 _canvas.Children.Add(newEnemy.Rectangle);
 
@@ -135,7 +155,7 @@ namespace EarthDefenderGUI
         private void MovementHandle()
         {
             collisionPlayer =  new Rect(Canvas.GetLeft(player1), Canvas.GetTop(player1), player1.Width, player1.Height);
-            enemiesLeft.Content = "Invaders Left:" + totalEnemies;
+            enemiesLeftLabel.Content = "Invaders Left:" + totalEnemies;
 
             if (goLeft && Canvas.GetLeft(player1) > 0)
             {
@@ -173,6 +193,8 @@ namespace EarthDefenderGUI
                                 itemsToRemove.Add(x);
                                 itemsToRemove.Add(y);
                                 totalEnemies--;
+                                score += 25;
+                                scoreLabel.Content = "Score:" + score;
                             }
                         }
                     }
@@ -194,7 +216,10 @@ namespace EarthDefenderGUI
                     if (collisionPlayer.IntersectsWith(enemy))
                     {
                         dispatcherTimer.Stop();
-                        MessageBox.Show("You Lose"); //Some Code here to "Restart" the game with faster enemy speed
+                        loseScreen.Visibility = Visibility.Visible;
+                        finalScoreLabel.Content = "Score: " + score;
+                        //Creates a highscore when the user loses
+                        _crudManager.CreateHighscore(_crudManager.SelectedUser.UserID, score);
                     }
                 }
 
@@ -212,7 +237,10 @@ namespace EarthDefenderGUI
                     if (enemyBullets.IntersectsWith(collisionPlayer))
                     {
                         dispatcherTimer.Stop();
-                        MessageBox.Show("You Lose");
+                        loseScreen.Visibility = Visibility.Visible;
+                        finalScoreLabel.Content = "Score: " + score;
+                        //Creates a highscore when the user loses
+                        _crudManager.CreateHighscore(_crudManager.SelectedUser.UserID, score);
                     }
                 }
             }

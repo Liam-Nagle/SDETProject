@@ -41,7 +41,7 @@ namespace EarthDefenderGUI
 
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new GamePage());
+            NavigationService.Navigate(new GamePage(_crudManager.SelectedUser.UserID));
         }
 
         private void ButtonLogout_Clicked(object sender, RoutedEventArgs e)

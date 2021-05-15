@@ -27,10 +27,12 @@ namespace EarthDefenderGUI
         int right = 2;
         int leftup = 3;
         int rightup = 4;
-        public GamePage()
+        int userID;
+        public GamePage(int userID)
         {
             InitializeComponent();
-            _gameEngine = new GameEngine(GameCanvas, LabelEnemiesLeft, RectanglePlayer);
+            _gameEngine = new GameEngine(GameCanvas, BorderLose, LabelEnemiesLeft, LabelLevel, LabelFinalScore, LabelScore, RectanglePlayer, userID);
+            this.userID = userID;
         }
 
         private void Canvas_KeyisDown(object sender, KeyEventArgs e)
@@ -67,6 +69,16 @@ namespace EarthDefenderGUI
             var window = Window.GetWindow(this);
             window.KeyDown += Canvas_KeyisDown;
             window.KeyUp += Canvas_KeyisUp;
+        }
+
+        private void ButtonPlayAgain_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new GamePage(userID));
+        }
+
+        private void ButtonMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainMenuPage(userID));
         }
     }
 }
