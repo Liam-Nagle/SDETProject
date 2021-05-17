@@ -206,10 +206,10 @@ My next sprints will now be working on Stretch goals and any additional testing 
 #### Sprint Goals
 
 - [x] Project Clean Up
-- [ ] Additional Unit Tests
+- [x] Additional Unit Tests
 - [ ] Stretch Goals
 - [x] Create Class Diagram for ReadMe
-- [ ] Add Instructions on how to setup the application in ReadMe
+- [x] Add Instructions on how to setup the application in ReadMe
 
 #### Kanban Board at the end
 
@@ -217,11 +217,11 @@ My next sprints will now be working on Stretch goals and any additional testing 
 
 #### Sprint Review
 
-
+This Sprint again was very short. I needed to write a few additional Unit tests and get my project cleaned up a bit more in terms of GUI. I also put Stretch Goals in there in case I had time to start working on that. Unfortunately I ended up working on my Presentation for the project instead as that needed work and I wasn't able to get onto the stretch goals. 
 
 #### Sprint Retrospective
 
-
+As explained in the review the sprint was again very short and easy to implement. Other than the stretch goals which I completed everything I needed to in this sprint. I expect this to be the final sprint of the project and I would be very happy to submit my game in the current state. However depending on time tomorrow I may have an extra sprint that I can work on.
 
 ## Setup Instructions
 
