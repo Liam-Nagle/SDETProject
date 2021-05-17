@@ -79,30 +79,6 @@ namespace EarthDefenderBusiness
             }
         }
 
-        //UPDATE
-
-        public void UpdateUser(int userID, string firstName, string lastName, string username, string password)
-        {
-            using(var db = new EarthDefenderContext())
-            {
-                SelectedUser = db.Users.Where(u => u.UserID == userID).FirstOrDefault();
-                SelectedUser.FirstName = firstName;
-                SelectedUser.LastName = lastName;
-                SelectedUser.Username = username;
-                SelectedUser.Password = password;
-                db.SaveChanges();
-            }
-        }
-
-        public void UpdateHighscore(int highscoreID, int score)
-        {
-            using(var db = new EarthDefenderContext())
-            {
-                SelectedHighscore = db.Highscores.Where(h => h.HighscoreID == highscoreID).FirstOrDefault();
-                SelectedHighscore.Score = score;
-                db.SaveChanges();
-            }
-        }
         public List<Highscore> RetrieveAllUserHighscores()
         {
             using (var db = new EarthDefenderContext())
@@ -156,6 +132,45 @@ namespace EarthDefenderBusiness
             using (var db = new EarthDefenderContext())
             {
                 return Enumerable.Range(0, RetrieveAllHighscores().Count).ToList();
+            }
+        }
+
+        public bool CheckIfUsernameExists(string username)
+        {
+            using(var db = new EarthDefenderContext())
+            {
+                if(db.Users.Where(u => u.Username == username).Count() > 0)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+        }
+
+        //UPDATE
+
+        public void UpdateUser(int userID, string firstName, string lastName, string username, string password)
+        {
+            using(var db = new EarthDefenderContext())
+            {
+                SelectedUser = db.Users.Where(u => u.UserID == userID).FirstOrDefault();
+                SelectedUser.FirstName = firstName;
+                SelectedUser.LastName = lastName;
+                SelectedUser.Username = username;
+                SelectedUser.Password = password;
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateHighscore(int highscoreID, int score)
+        {
+            using(var db = new EarthDefenderContext())
+            {
+                SelectedHighscore = db.Highscores.Where(h => h.HighscoreID == highscoreID).FirstOrDefault();
+                SelectedHighscore.Score = score;
+                db.SaveChanges();
             }
         }
 

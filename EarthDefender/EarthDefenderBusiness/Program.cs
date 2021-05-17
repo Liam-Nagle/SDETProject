@@ -12,12 +12,7 @@ namespace EarthDefenderBusiness
             CRUDManager _crudManager = new CRUDManager();
             using(var db = new EarthDefenderContext())
             {
-                var expected = db.Highscores.Where(h => h.User.FirstName == "Liam").FirstOrDefault().HighscoreID;
-
-                _crudManager.UpdateHighscore(expected, 11);
-                var updatedHighscore = db.Highscores.Find(expected);
-
-                Console.WriteLine(updatedHighscore.Score);
+                _crudManager.UpdateUser(64, "L", "Nagle", "LNagle", "password");
             }
 
         }

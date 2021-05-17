@@ -58,7 +58,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Score     Name" Width="250">
+                        <GridViewColumn Header="Score    Name" Width="250">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Path=Value}" FontWeight="Normal" Foreground="White"/>

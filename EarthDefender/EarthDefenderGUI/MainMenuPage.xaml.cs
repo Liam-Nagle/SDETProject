@@ -26,7 +26,7 @@ namespace EarthDefenderGUI
         {
             InitializeComponent();
             _crudManager.SetSelectedUser(userID);
-            TextblockUsername.Text = "Welcome! " + _crudManager.SelectedUser.FirstName;
+            TextblockUsername.Text = "Welcome! " + _crudManager.SelectedUser.FirstName + _crudManager.SelectedUser.LastName;
         }
 
         public MainMenuPage()

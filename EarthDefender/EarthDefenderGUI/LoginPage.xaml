@@ -50,12 +50,12 @@
                     materialDesign:HintAssist.Hint="Password"/>
             </StackPanel>
         </Grid>
-        <TextBlock Grid.Column="1" Text="Login" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="75" FontFamily="{DynamicResource MaterialDesignFont}" FontWeight="Bold" Foreground="#FF263238" Margin="0,0,10,0"/>
+        <TextBlock Grid.Column="1" Text="Login" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="75" FontFamily="{DynamicResource MaterialDesignFont}" FontWeight="Bold" Foreground="#385780" Margin="0,0,10,0"/>
         <materialDesign:PackIcon
             Kind="AccountCircle"
             Width="100"
             Height="100"
-            Foreground="#FF263238" VerticalAlignment="Center" Grid.Column="1"/>
+            Foreground="#385780" VerticalAlignment="Center" Grid.Column="1"/>
         <Grid Grid.Row="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -66,14 +66,14 @@
               ToolTip="Click Here To Login"
               VerticalAlignment="Top"
               materialDesign:RippleAssist.Feedback="#FFFFFF"
-              Content="Login" Margin="0,0,5,0" Background="#FF263238" BorderBrush="#FF263238" Click="LoginButton_Click" />
+              Content="Login" Margin="0,0,5,0" Background="#385780" BorderBrush="#FF263238" Click="LoginButton_Click" />
             <Button x:Name="ButtonRegister"
               Style="{StaticResource MaterialDesignRaisedAccentButton}"
               ToolTip="Click Here To Register"
               VerticalAlignment="Top"
               materialDesign:RippleAssist.Feedback="#FFFFFF"
               Grid.Column="1"
-              Content="Register" Margin="5,0,0,0" Background="#FF263238" BorderBrush="#FF263238" Click="RegisterButton_Click"/>
+              Content="Register" Margin="5,0,0,0" Background="#385780" BorderBrush="#FF263238" Click="RegisterButton_Click"/>
         </Grid>
     </Grid>
 </Page>

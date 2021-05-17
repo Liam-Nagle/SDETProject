@@ -1,10 +1,10 @@
 # SDET Project
 
+**DISCLAMER NO PASSWORD ENCRYPTION IS IMPLEMENTED PLEASE DON'T USE GENUINE PASSWORDS**
+
 ## Project Description
 
 I will be creating a Space Invader game that will allow the user to keep track of high scores and compare them against one another. The user will be able to login with a Username and Password allowing the high scores they set to be tracked under their name. 
-
-
 
 ## Project Goals
 
@@ -39,7 +39,7 @@ I will be creating a Space Invader game that will allow the user to keep track o
 
 ## Class Diagram
 
-
+![](/Images/ClassDiagram.png)
 
 ## Sprints
 
@@ -196,4 +196,78 @@ This Sprint was very short. I only had a few things to finish before officially 
 This sprint was very short and quite easy to implement. I simply needed to add a scoring functionality and a menu to restart/go to main menu when losing. This didn't take much time at all as the Highscore creation was already written and I simply needed to design a Menu to change to visible in the Game page when the user lost. 
 
 My next sprints will now be working on Stretch goals and any additional testing if needed.
+
+### Sprint 6
+
+#### Kanban Board at the start
+
+![](/Images/KanbanBoardSprint6Start.png)
+
+#### Sprint Goals
+
+- [x] Project Clean Up
+- [ ] Additional Unit Tests
+- [ ] Stretch Goals
+- [x] Create Class Diagram for ReadMe
+- [ ] Add Instructions on how to setup the application in ReadMe
+
+#### Kanban Board at the end
+
+![](/Images/KanbanBoardSprint6End.png)
+
+#### Sprint Review
+
+
+
+#### Sprint Retrospective
+
+
+
+## Setup Instructions
+
+If you would like to download the published version of the application please go to here:
+
+Otherwise please follow these setup instructions to be able to edit and work on this project yourself. If you haven't already please start by installing Visual Studio and downloading the Project from GitHub. 
+
+#### Step 1:
+
+Once you have opened the Project in Visual Studio if the packages haven't been automatically installed you must first do this:
+
+1. Open the EarthDefenderModel and right click on Dependencies and click on manage Nuget packages.
+2. From here click on browse and search for "EntityFrameworkCore.SQLServer" and "EntityFrameworkCore.Tools" install both of these packages.
+
+![](/Images/Step1.gif)
+
+
+
+#### Step 2:
+
+Once you have completed step 1 you must now setup the database. 
+
+1. At the top of Visual Studio search for "Package Manager Console" and open this window. 
+
+2. Inside of here type "add-migration 'name of migration'". Name of migration can be anything you want to call it. Normally this would be "Initial Migration" or something similar. Don't include the quotes around.
+
+3. Once the migration has been added. Next you must "send" this migration to the database. You can do this by simply typing "update-database" into the Package Manager Console. This will take a minute or so to complete but once done you will now have the database setup.   
+
+![](/Images/Step2.gif)
+
+
+
+#### Step 3:
+
+Once you have completed step 2 you must now install the GUI packages as I have used Material Design to help with the GUI design you must install "MaterialDesignColors" and "MaterialDesignThemes". Similar to step 1:
+
+1. Open EarthDefenderGUI and right click on Dependencies and click on manage Nuget packages.
+2. From here click on browse and search for "MaterialDesignColors" and "MaterialDesignThemes" install both of these packages.
+
+![](/Images/Step3.gif)
+
+
+
+This should then complete the Solution setup. From here you can run the application by running EarthDefenderGUI and you can now freely edit and change anything you would like within the solution. 
+
+
+
+
 

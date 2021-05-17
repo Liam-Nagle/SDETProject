@@ -104,13 +104,20 @@
                     materialDesign:HintAssist.Hint="Confirm Password"/>
             </StackPanel>
         </Grid>
-        <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Text="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="{DynamicResource MaterialDesignFont}" FontWeight="Bold" Foreground="#FF263238"/>
+        <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Text="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="75" FontFamily="{DynamicResource MaterialDesignFont}" FontWeight="Bold" Foreground="#385780"/>
         <Button x:Name="ButtonRegister"
               Style="{StaticResource MaterialDesignRaisedAccentButton}"
               ToolTip="Click Here To Register"
               VerticalAlignment="Top"
               materialDesign:RippleAssist.Feedback="#FFFFFF"
-              Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
-              Content="Register" Background="#FF263238" BorderBrush="#FF263238" Width="281" Click="Button_Click"/>
+              Grid.Row="2" Grid.Column="3"
+              Content="Register" Background="#385780" BorderBrush="#385780" Width="281" Click="ButtonRegister_Click"/>
+        <Button x:Name="ButtonBack"
+              Style="{StaticResource MaterialDesignRaisedAccentButton}"
+              ToolTip="Click Here To Register"
+              VerticalAlignment="Top"
+              materialDesign:RippleAssist.Feedback="#FFFFFF"
+              Grid.Row="2" Grid.Column="1"
+              Content="Back" Background="#385780" BorderBrush="#385780" Width="281" Click="ButtonBack_Click"/>
     </Grid>
 </Page>

@@ -201,6 +201,57 @@ namespace EarthDefenderTests
             }
         }
 
+        [Test]
+        public void CheckIfUsernameExists_ShouldReturnTrue()
+        {
+            using (var db = new EarthDefenderContext())
+            {
+                var newUser = new User()
+                {
+                    FirstName = "Liam",
+                    LastName = "Nagle",
+                    Username = "LiamNagle",
+                    Password = "password",
+                    Highscores = new List<Highscore>() { new Highscore() { Score = 1 } }
+                };
+                db.Users.Add(newUser);
+                db.SaveChanges();
+
+                Assert.IsTrue(_crudManager.CheckIfUsernameExists("LiamNagle"));
+            }
+        }
+
+        [Test]
+        public void CheckLoginDetails_ShouldReturnTrue()
+        {
+            using (var db = new EarthDefenderContext())
+            {
+                var newUser = new User()
+                {
+                    FirstName = "Liam",
+                    LastName = "Nagle",
+                    Username = "LiamNagle",
+                    Password = "password",
+                    Highscores = new List<Highscore>() { new Highscore() { Score = 1 } }
+                };
+                db.Users.Add(newUser);
+                db.SaveChanges();
+
+                Assert.IsTrue(_crudManager.LoginDetails("LiamNagle", "password"));
+            }
+        }
+
+        [Test]
+        public void RetrieveAllHighscorePosition_RetunsAListOfIntsOfHighscorePositionsEqualToLengthOfPositionsTable()
+        {
+            using (var db = new EarthDefenderContext())
+            {
+                var positions = _crudManager.RetrieveAllHighscorePositions();
+
+                Assert.AreEqual(db.Highscores.Count(), positions.Count());
+            }
+        }
+
         [TearDown]
         public void TearDown()
         {

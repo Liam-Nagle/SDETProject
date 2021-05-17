@@ -27,26 +27,41 @@ namespace EarthDefenderGUI
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonRegister_Click(object sender, RoutedEventArgs e)
         {
-            if(NullCheck() && PasswordBoxRegister.Password == PasswordConfirmBoxRegister.Password)
+            if(NullCheck() && (PasswordBoxRegister.Password == PasswordConfirmBoxRegister.Password))
             {
-                _crudmanager.CreateUser(TextBoxFirstNameRegister.Text, TextBoxLastNameRegister.Text, TextBoxUsernameRegister.Text, PasswordBoxRegister.Password);
-                NavigationService.GoBack();
+                if(_crudmanager.CheckIfUsernameExists(TextBoxUsernameRegister.Text))
+                {
+                    MessageBox.Show("Username already exists! Choose a new one!");
+                } else
+                {
+                    _crudmanager.CreateUser(TextBoxFirstNameRegister.Text, TextBoxLastNameRegister.Text, TextBoxUsernameRegister.Text, PasswordBoxRegister.Password);
+                    NavigationService.GoBack();
+                }
+            }
+            else if(NullCheck() == false)
+            {
+                MessageBox.Show("Please make sure you have filled in all the fields correctly!");
             }
             else
             {
-                MessageBox.Show("Please make sure your Passwords are the same!");
+                MessageBox.Show("Please make sure both the passwords are the same!");
             }
+        }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
 
         private bool NullCheck()
         {
-            if(TextBoxFirstNameRegister.Text == null || 
-                TextBoxLastNameRegister.Text == null || 
-                TextBoxUsernameRegister.Text == null || 
-                PasswordBoxRegister.Password == null || 
-                PasswordConfirmBoxRegister.Password == null)
+            if(TextBoxFirstNameRegister.Text == "" || 
+                TextBoxLastNameRegister.Text == "" || 
+                TextBoxUsernameRegister.Text == "" || 
+                PasswordBoxRegister.Password == "" || 
+                PasswordConfirmBoxRegister.Password == "")
             {
                 return false;
             } else
